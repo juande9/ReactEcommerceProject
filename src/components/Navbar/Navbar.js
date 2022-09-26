@@ -1,7 +1,7 @@
 import CartWidget from "../CartWidget/CartWidget"
 import NavButton from "../NavButton/NavButton"
 
-const Nabvar = () => {
+const Navbar = () => {
 
     return (
         <header className="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -27,4 +27,4 @@ const Nabvar = () => {
     )
 }
 
-export default Nabvar
+export default Navbar
