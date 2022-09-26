@@ -4,7 +4,7 @@ import NavButton from "../NavButton/NavButton"
 const Nabvar = () => {
 
     return (
-        <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+        <header className="navbar navbar-dark bg-dark navbar-expand-lg">
             <div className="container">
                 <a className="navbar-brand" href=".">Bufandas Futboleras</a>
                 <div className="">
@@ -23,7 +23,7 @@ const Nabvar = () => {
                     <CartWidget />
                 </div>
             </div>
-        </nav>
+        </header>
     )
 }
 
