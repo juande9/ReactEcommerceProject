@@ -4,7 +4,7 @@ const CartWidget = () => {
 
     return (
         <button type="button" className="btn btn-light">
-            <i class="bi bi-cart2"></i>
+            <i className="bi bi-cart2"></i>
             <span>0</span>
         </button>
     )

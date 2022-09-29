@@ -1,0 +1,16 @@
+.counter {
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 200px;
+}
+
+button {
+    color:black
+}
+
+.error{
+    color:brown
+}
