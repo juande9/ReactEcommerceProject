@@ -4,11 +4,16 @@ import Nabvar from './components/Nabvar/Nabvar';
 import Counter from './components/Counter/Counter';
 
 function App() {
+  
+  const showStock = () => {
+    console.log("Hay 5")
+  }
+  
   return (
     <div className='App'>
       <Nabvar />
-      <ItemListContainer greeting="Bienvenido"/>
-      <Counter/>
+      <ItemListContainer greeting="Bienvenido" />
+      <Counter onAdd={showStock} />
     </div>
   );
 }

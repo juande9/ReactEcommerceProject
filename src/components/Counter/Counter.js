@@ -1,18 +1,29 @@
 import "./Counter.css"
 import { useState } from "react";
 
-const Counter = () => {
-
+const Counter = ({onAdd}) => {
     const [number, setNumber] = useState(0)
     const [error, setError] = useState()
 
+    let stock = 5
+
     function add() {
-        setNumber(number + 1)
-        setError("")
+        if (number < stock) {
+            setNumber(number + 1)
+            setError("")
+        } else {
+            setError("Nos quedamos sin stock.")
+        }
     }
 
     function remove() {
-        number > 0 ? setNumber(number - 1) : setError("Menos que cero no se puede papu.")
+        if (number > 0) {
+            setNumber(number - 1)
+            setError("")
+        } else {
+            setError("Menos de cero no se puede.")
+        }
+
     }
 
     return (
@@ -26,6 +37,9 @@ const Counter = () => {
                     <i className="bi bi-plus"></i>
                 </button>
             </div>
+            <button type="button" onClick={onAdd}>
+                Agregar al Carrito
+            </button>
             <div className="error">{error}</div>
         </div>
     )
