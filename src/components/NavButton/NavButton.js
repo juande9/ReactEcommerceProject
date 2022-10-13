@@ -1,12 +1,12 @@
 import "./NavButton.css"
+import { Link } from "react-router-dom"
 
-const NavButton = ({children}) => {
+const NavButton = ({ children }) => {
     return (
-        <button type="button">
+        <Link to={`/category/${children.toLowerCase()}`} className="NavButton">
             {children}
-        </button>
+        </Link>
     )
-
 }
 
 export default NavButton

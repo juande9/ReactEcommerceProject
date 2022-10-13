@@ -1,7 +1,7 @@
 import "./Counter.css"
 import { useState } from "react";
 
-const Counter = ({onAdd}) => {
+const Counter = ({ onAdd }) => {
     const [number, setNumber] = useState(0)
     const [error, setError] = useState()
 
@@ -20,10 +20,7 @@ const Counter = ({onAdd}) => {
         if (number > 0) {
             setNumber(number - 1)
             setError("")
-        } else {
-            setError("Menos de cero no se puede.")
         }
-
     }
 
     return (
@@ -34,7 +31,7 @@ const Counter = ({onAdd}) => {
                 </button>
                 <h5>{number}</h5>
                 <button type="button" onClick={add}>
-                    <i className="bi bi-plus"></i>
+                    <i className="bi bi-plus "></i>
                 </button>
             </div>
             <button type="button" onClick={onAdd}>

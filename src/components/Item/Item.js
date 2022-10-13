@@ -1,17 +1,27 @@
 import "./Item.css"
-import Counter from "../Counter/Counter"
+import { Link } from "react-router-dom"
 
-const Item = ({ title, img }) => {
+const Item = ({ title, img, logoId, team, decade, stock, id }) => {
+
+    const imgLogoUrl = `https://crests.football-data.org/${logoId}`
 
     return (
-        <div className="card d-flex align-items-center" style={{ width: "18rem" }}>
+        <div className="card col-4 align-items-center" style={{ width: "18rem", margin: "1em" }}>
             <img src={img} className="card-img-top" alt={title}></img>
             <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <Counter />
+                <img src={imgLogoUrl} alt={team} className="logo"></img>
+                <h5 className="card-title">{team}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">{decade}</h6>
+                <Link to={`/item/${id}`}>
+                    <button>
+                        Ver detalles
+                    </button>
+                </Link>
             </div>
-        </div>
+            <div className="stock">
+                Stock: {stock}
+            </div>
+        </div >
     )
 }
 

@@ -1,10 +1,19 @@
-button{
+.NavButton {
     color: #fff;
-    background:none;
+    background: none;
     padding: 0.8em 1em;
     border: none;
 }
 
-button:hover{
+.links {
+    color: #fff;
+    text-decoration: none;
+}
+
+.links:hover {
+    color: #fff;
+}
+
+button:hover {
     text-decoration: underline;
 }

@@ -1,19 +1,23 @@
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListCointainer';
 import Nabvar from './components/Nabvar/Nabvar';
-import Counter from './components/Counter/Counter';
+import ItemDetailContainter from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
   
-  const showStock = () => {
-    console.log("Hay 5")
-  }
-  
+  document.body.style = 'background: #fbfbfb;';
+
   return (
     <div className='App'>
-      <Nabvar />
-      <ItemListContainer greeting="Bienvenido" />
-      <Counter onAdd={showStock} />
+      <BrowserRouter>
+        <Nabvar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path='/item/:productId' element={<ItemDetailContainter />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

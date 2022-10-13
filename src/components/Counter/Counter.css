@@ -1,16 +1,21 @@
 .counter {
-    border: 1px solid;
+    border: 1px solid #e3e3e3;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: auto;
     width: 200px;
+    border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    -moz-border-radius: 9px 9px 9px 9px;
 }
 
-button {
-    color:black
+button{
+    background:none;
+    padding: 0.8em 1em;
+    border: none;
 }
 
-.error{
-    color:brown
+.error {
+    color: brown
 }

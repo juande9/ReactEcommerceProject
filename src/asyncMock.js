@@ -1,17 +1,101 @@
 const products = [
     {
         id: '1',
-        title: 'Barcelona Messi',
+        title: 'Barcelona',
+        logoId: "81.svg",
         team: "F.C. Barcelona",
-        country: "Spain",
+        country: "españa",
         price: 3500,
         league: 'La Liga',
         img: '/../assets/img/scarfs/bcn1/thumbnail.png',
         stock: 2,
         decade: "2010s",
     },
-    { id: '2', name: 'samsung s21', price: 800, category: 'celular', img: 'https://cdn.pocket-lint.com/r/s/1200x630/assets/images/155378-phones-review-hands-on-samsung-galaxy-s21-ultra-image1-luae09ici4.JPG', stock: 16, description: 'Descripcion de Samsung s21' },
-    { id: '3', name: 'Ipad 8va generacion', price: 1200, category: 'tablet', img: 'https://medias.musimundo.com/medias/00406046-143516-143516-01-143516-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MjI1MnxpbWFnZS9qcGVnfGhjMC9oYWMvMTAyODM0OTc0NTU2NDYvMDA0MDYwNDYtMTQzNTE2LTE0MzUxNl8wMS0xNDM1MTZfMDEuanBnX3NpemU1MTV8MzA0NmMzNGFhZjUwMDY2YjY5MjU0MjlkMGJlYWMxODAxZjE5ODJhZmJlOTczZThmZjE2NTQxMjU5NjE2OTA4Yw', stock: 10, description: 'Descripcion de Ipad' }
+    {
+        id: '2',
+        title: 'Celta',
+        logoId: "558.svg",
+        team: "RC Celta",
+        country: "españa",
+        price: 3500,
+        league: 'La Liga',
+        img: '/../assets/img/scarfs/cel1/thumbnail.png',
+        stock: 1,
+        decade: "1990s",
+    },
+    {
+        id: '3',
+        title: 'Fiorentina',
+        logoId: "99.svg",
+        team: "ACF Fiorentina",
+        country: "italia",
+        price: 3500,
+        league: 'Serie A',
+        img: '/../assets/img/scarfs/fio1/thumbnail.png',
+        stock: 2,
+        decade: "1990s",
+    },
+    {
+        id: '4',
+        title: 'Inter',
+        logoId: "108.png",
+        team: "F.C. Inter de Milan",
+        country: "italia",
+        price: 3500,
+        league: 'Serie A',
+        img: '/../assets/img/scarfs/int1/thumbnail.png',
+        stock: 2,
+        decade: "1990s",
+    },
+    {
+        id: '5',
+        title: 'Juventus',
+        logoId: "109.svg",
+        team: "Juventus Football Club",
+        country: "italia",
+        price: 3500,
+        league: 'Serie A',
+        img: '/../assets/img/scarfs/juv1/thumbnail.png',
+        stock: 2,
+        decade: "1990s",
+    },
+    {
+        id: '6',
+        title: 'Manchester United',
+        logoId: "66.png",
+        team: "Manchester United",
+        country: "inglaterra",
+        price: 3500,
+        league: 'Premier League',
+        img: '/../assets/img/scarfs/man1/thumbnail.png',
+        stock: 2,
+        decade: "2000s",
+    },
+    {
+        id: '7',
+        title: 'A. S. Mónaco',
+        logoId: "548.png",
+        team: "A. S. Mónaco",
+        country: "francia",
+        price: 3500,
+        league: 'Ligue 1',
+        img: '/../assets/img/scarfs/mco1/thumbnail.png',
+        stock: 1,
+        decade: "1990s",
+    },
+    {
+        id: '8',
+        title: 'Real Madrid F.C.',
+        logoId: "86.png",
+        team: "Real Madrid F.C.",
+        country: "españa",
+        price: 3500,
+        league: 'La Liga',
+        img: '/../assets/img/scarfs/rma1/thumbnail.png',
+        stock: 2,
+        decade: "1990s",
+    },
+
 ]
 
 /**
@@ -22,5 +106,24 @@ export const getProducts = () => {
         setTimeout(() => {
             resolve(products)
         }, 2000)
+    })
+}
+
+/**
+ Funcion que simula retardo al llamar a Apis.
+ */
+export const getProductbyId = (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
+        }, 500)
+    })
+}
+
+export const getProductsByCategory = (categoryId) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(products.filter(prod => prod.country === categoryId))
+        }, 500)
     })
 }
