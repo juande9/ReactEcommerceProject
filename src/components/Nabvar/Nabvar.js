@@ -1,32 +1,34 @@
 import CartWidget from "../CartWidget/CartWidget"
-import NavButton from "../NavButton/NavButton"
+import NavButtonCategory from "../NavButtonCategory/NavButtonCategory"
 import { Link } from "react-router-dom"
 
 const Nabvar = () => {
 
     return (
-            <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-                <div className="container">
-                    <Link to="/">
-                        <h1 className="navbar-brand">Bufandas Futboleras</h1>
-                    </Link>
-                    <div>
-                        <NavButton>
-                            España
-                        </NavButton>
-                        <NavButton>
-                            Italia
-                        </NavButton>
-                        <NavButton>
-                            Inglaterra
-                        </NavButton>
-                        <NavButton>
-                            Francia
-                        </NavButton>
+        <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+            <div className="container">
+                <Link to="/">
+                    <h1 className="navbar-brand">Bufandas Futboleras</h1>
+                </Link>
+                <div>
+                    <NavButtonCategory>
+                        España
+                    </NavButtonCategory>
+                    <NavButtonCategory>
+                        Italia
+                    </NavButtonCategory>
+                    <NavButtonCategory>
+                        Inglaterra
+                    </NavButtonCategory>
+                    <NavButtonCategory>
+                        Francia
+                    </NavButtonCategory>
+                    <Link to="/cart">
                         <CartWidget />
-                    </div>
+                    </Link>
                 </div>
-            </nav>
+            </div>
+        </nav>
     )
 }
 

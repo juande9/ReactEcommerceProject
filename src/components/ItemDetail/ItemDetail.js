@@ -1,7 +1,24 @@
 import "./ItemDetail.css"
+import { useState } from "react"
 import Counter from "../Counter/Counter"
+import { useContext } from "react"
+import CartLinkItem  from "../CartLinkItem/CartLinkItem"
+import { CartContext } from '../../context/CartContext'
 
-const ItemDetail = ({ img, team, logoId, price, league, decade }) => {
+const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => {
+
+    const [productAdded, setproductAdded] = useState(false)
+    const { addItem } = useContext(CartContext)
+
+    const HandleOnAdd = (quantity) => {
+        if (quantity > 0) {
+            setproductAdded(true)
+            const productToAdd = {
+                id, img, team, logoId, price, quantity
+            }
+            addItem(productToAdd)
+        }
+    }
 
     const imgLogoUrl = `https://crests.football-data.org/${logoId}`
 
@@ -25,7 +42,7 @@ const ItemDetail = ({ img, team, logoId, price, league, decade }) => {
                     <h5 className="details">Decada</h5>
                     <p >{decade}</p>
                 </div>
-                <Counter />
+                {productAdded ? <CartLinkItem /> : <Counter onAdd={HandleOnAdd} stock={stock} />}
             </div>
         </div>
     )

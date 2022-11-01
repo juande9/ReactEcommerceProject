@@ -1,0 +1,18 @@
+.CartRow{
+    background-color: rgb(239, 239, 239);
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(229, 229, 229);
+}
+
+.logoList {
+    max-width: 4em !important;
+    margin: 0.5em;
+}
+
+.scarf{
+    width: 3em !important;
+}

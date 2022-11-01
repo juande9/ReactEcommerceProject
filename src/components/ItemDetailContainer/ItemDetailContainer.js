@@ -20,7 +20,7 @@ const ItemDetailContainter = () => {
     }
 
     return (
-        <div className="container vh-100" style={{ marginTop: 75 }}>
+        <div className="container" style={{ marginTop: 75 }}>
             <ItemDetail {...product} />
         </div>
     )

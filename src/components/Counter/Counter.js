@@ -1,15 +1,13 @@
 import "./Counter.css"
 import { useState } from "react";
 
-const Counter = ({ onAdd }) => {
-    const [number, setNumber] = useState(0)
+const Counter = ({ onAdd, stock }) => {
+    const [quantity, setquantity] = useState(0)
     const [error, setError] = useState()
 
-    let stock = 5
-
     function add() {
-        if (number < stock) {
-            setNumber(number + 1)
+        if (quantity < stock) {
+            setquantity(quantity + 1)
             setError("")
         } else {
             setError("Nos quedamos sin stock.")
@@ -17,8 +15,8 @@ const Counter = ({ onAdd }) => {
     }
 
     function remove() {
-        if (number > 0) {
-            setNumber(number - 1)
+        if (quantity > 0) {
+            setquantity(quantity - 1)
             setError("")
         }
     }
@@ -29,12 +27,12 @@ const Counter = ({ onAdd }) => {
                 <button type="button" onClick={remove}>
                     <i className="bi bi-dash"></i>
                 </button>
-                <h5>{number}</h5>
+                <h5>{quantity}</h5>
                 <button type="button" onClick={add}>
                     <i className="bi bi-plus "></i>
                 </button>
             </div>
-            <button type="button" onClick={onAdd}>
+            <button type="button" onClick={() => onAdd(quantity)}>
                 Agregar al Carrito
             </button>
             <div className="error">{error}</div>
