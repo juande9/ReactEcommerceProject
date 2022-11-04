@@ -3,9 +3,10 @@ import { CartContext } from "../../context/CartContext"
 import CartList from "../CartList/CartList"
 import { Link } from "react-router-dom"
 
+
 const CartListContainer = () => {
 
-    const { cart } = useContext(CartContext)
+    const { cart, totalPriceOrder } = useContext(CartContext)
 
     if (cart.length === 0) {
         return (
@@ -19,6 +20,8 @@ const CartListContainer = () => {
     return (
         <div>
             {cart.map(item => <CartList {...item} key={item.id} />)}
+            <h5 className="m-2">Total: {totalPriceOrder}</h5>
+            <Link className="btn btn-warning m-1" to="/checkout">Finalizar compra</Link>
         </div>
     )
 }

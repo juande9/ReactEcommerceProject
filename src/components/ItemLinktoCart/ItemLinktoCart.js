@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const CartLinkItem = () => {
+const ItemLinktoCart = () => {
     return (
         <div className="d-flex flex-column">
             <Link className="btn btn-warning m-1" to="/cart">Terminar la compra</Link>
@@ -9,4 +9,4 @@ const CartLinkItem = () => {
     )
 }
 
-export default CartLinkItem
+export default ItemLinktoCart

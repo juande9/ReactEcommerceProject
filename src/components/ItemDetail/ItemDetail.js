@@ -2,7 +2,7 @@ import "./ItemDetail.css"
 import { useState } from "react"
 import Counter from "../Counter/Counter"
 import { useContext } from "react"
-import CartLinkItem  from "../CartLinkItem/CartLinkItem"
+import ItemLinktoCart from "../ItemLinktoCart/ItemLinktoCart"
 import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => {
@@ -42,7 +42,9 @@ const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => 
                     <h5 className="details">Decada</h5>
                     <p >{decade}</p>
                 </div>
-                {productAdded ? <CartLinkItem /> : <Counter onAdd={HandleOnAdd} stock={stock} />}
+                {productAdded ? <ItemLinktoCart /> :
+                    stock !== 0 ? <Counter onAdd={HandleOnAdd} stock={stock} /> :
+                        <p style={{ color: "crimson", fontWeight: "500" }}>No hay stock</p>}
             </div>
         </div>
     )

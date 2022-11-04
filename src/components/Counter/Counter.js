@@ -10,7 +10,7 @@ const Counter = ({ onAdd, stock }) => {
             setquantity(quantity + 1)
             setError("")
         } else {
-            setError("Nos quedamos sin stock.")
+            setError("No hay mas stock disponible")
         }
     }
 

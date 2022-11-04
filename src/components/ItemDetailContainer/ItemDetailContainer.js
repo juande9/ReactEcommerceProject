@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { getProductbyId } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import Spinner from "../Spinner/Spinner"
 import { useParams } from "react-router-dom"
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebase"
 
 const ItemDetailContainter = () => {
     const [product, setProduct] = useState({})
@@ -10,13 +12,18 @@ const ItemDetailContainter = () => {
     const { productId } = useParams()
 
     useEffect(() => {
-        getProductbyId(productId).then(response => {
-            setProduct(response)
+
+        const docRef = doc(db, "products", productId)
+
+        getDoc(docRef).then(response => {
+            const data = response.data()
+            const adaptedProduct = { id: response.id, ...data }
+            setProduct(adaptedProduct)
         }).finally(() => setLoading(false))
     }, [productId])
 
     if (loading) {
-        return <img src="https://i.stack.imgur.com/kOnzy.gif" style={{ width: "10em", padding: "1em" }} alt="Cargando..."></img>
+        return Spinner()
     }
 
     return (
