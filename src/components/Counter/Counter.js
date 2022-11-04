@@ -1,23 +1,25 @@
 import "./Counter.css"
 import { useState } from "react";
+import { Toast } from "../../SweetAlerts/SweetAlets"
+
 
 const Counter = ({ onAdd, stock }) => {
     const [quantity, setquantity] = useState(0)
-    const [error, setError] = useState()
 
     function add() {
         if (quantity < stock) {
             setquantity(quantity + 1)
-            setError("")
         } else {
-            setError("No hay mas stock disponible")
+            Toast.fire({
+                icon: 'error',
+                title: 'Has llegado al limite de stock'
+              })
         }
     }
 
     function remove() {
         if (quantity > 0) {
             setquantity(quantity - 1)
-            setError("")
         }
     }
 
@@ -35,7 +37,6 @@ const Counter = ({ onAdd, stock }) => {
             <button type="button" onClick={() => onAdd(quantity)}>
                 Agregar al Carrito
             </button>
-            <div className="error">{error}</div>
         </div>
     )
 }

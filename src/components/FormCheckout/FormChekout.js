@@ -1,31 +1,37 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from "../../services/firebase"
+import { Toast } from "../../SweetAlerts/SweetAlets"
 import Spinner from "../Spinner/Spinner"
 
 const FormCheckout = () => {
 
     const { cart, totalPriceOrder } = useContext(CartContext)
 
-    const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [number, setNumber] = useState()
 
-    useEffect(() => {
-        if (cart.length === 0) {
-            setError("El carrito se encuentra vacio")
-        } else setError("")
-    }, [cart])
+    if (cart.length === 0) {
+        return (
+            <div style={{ fontWeight: "500", color:"red" }}>El carrito esta vacío. Completelo para continuar</div>
+        )
+    }
 
     const createOrder = async () => {
 
         setLoading(true)
 
         try {
+
+            Toast.fire({
+                icon: "info",
+                title: "Se esta generando la orden. Aguarde un momento."
+            })
+
             const newOrder = {
                 buyer: {
                     name: { name },
@@ -71,9 +77,15 @@ const FormCheckout = () => {
 
                 const newOrderCreated = await addDoc(collectionRef, newOrder)
 
-                console.log(newOrderCreated.id)
+                Toast.fire({
+                    icon: "success",
+                    title: `La orden ${newOrderCreated.id} ha sido generada con exito`
+                })
             } else {
-                console.log("Error")
+                Toast.fire({
+                    icon: "error",
+                    title: `Hubo un error en la generación de la orden`
+                })
             }
 
         } catch (error) {
@@ -86,7 +98,6 @@ const FormCheckout = () => {
     if (loading) {
         return (
             <div>
-                <p style={{ color: "green", fontWeight: "500" }}> Su orden se esta generando</p>
                 <Spinner />
             </div>
         )
@@ -94,7 +105,6 @@ const FormCheckout = () => {
 
     return (
         <div>
-            <div style={{ color: "red", paddingBottom: "1em" }}>{error}</div>
             <div className="form-floating mb-3">
                 <input type="text" name="name" className="form-control" onChange={(e) => setName(e.target.value)} required ></input>
                 <label htmlFor="floatingName">Nombre Completo</label>

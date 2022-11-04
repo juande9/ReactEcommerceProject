@@ -1,6 +1,7 @@
 import "./CartList.css"
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
+import { Toast } from "../../SweetAlerts/SweetAlets"
 
 const CartList = ({ team, img, quantity, price, logoId, id }) => {
 
@@ -8,6 +9,10 @@ const CartList = ({ team, img, quantity, price, logoId, id }) => {
 
     const HandleRemoveItem = () => {
         removeItem(id)
+        Toast.fire({
+            icon:"warning",
+            title: `El producto de ${team} ha sido eliminado correctamente`
+        })
     }
 
     const imgLogoUrl = `https://crests.football-data.org/${logoId}`

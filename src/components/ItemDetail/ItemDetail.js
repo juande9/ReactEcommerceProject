@@ -4,6 +4,7 @@ import Counter from "../Counter/Counter"
 import { useContext } from "react"
 import ItemLinktoCart from "../ItemLinktoCart/ItemLinktoCart"
 import { CartContext } from '../../context/CartContext'
+import { Toast } from "../../SweetAlerts/SweetAlets"
 
 const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => {
 
@@ -17,6 +18,10 @@ const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => 
                 id, img, team, logoId, price, quantity
             }
             addItem(productToAdd)
+            Toast.fire({
+                icon: 'success',
+                title: `Has agregado ${quantity} productos al carrito`
+              })
         }
     }
 
