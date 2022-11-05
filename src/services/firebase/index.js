@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBA0pUFu0QmjyxtbyoXbyod-pe6RLT5YpQ",
-  authDomain: "bufandasfutboleras.firebaseapp.com",
-  projectId: "bufandasfutboleras",
-  storageBucket: "bufandasfutboleras.appspot.com",
-  messagingSenderId: "319767552830",
-  appId: "1:319767552830:web:737e0f866f7616cef5026f"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);
