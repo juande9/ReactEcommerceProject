@@ -3,14 +3,11 @@ import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from "../../services/firebase"
-import Spinner from "../Spinner/Spinner"
 import { Toast } from "../../SweetAlerts/SweetAlets"
 
 const FormCheckoutContainer = () => {
 
     const { cart, totalPriceOrder } = useContext(CartContext)
-
-    const [loading, setLoading] = useState(false)
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -33,9 +30,8 @@ const FormCheckoutContainer = () => {
         setNumber(value)
     }
 
-    const createOrder = async () => {
 
-        setLoading(true)
+    const createOrder = async () => {
 
         try {
 
@@ -119,19 +115,8 @@ const FormCheckoutContainer = () => {
 
         } catch (error) {
             console.log(error)
-        } finally {
-            setLoading(false)
-        }
-
-        if (loading) {
-            return (
-                <div>
-                    <Spinner />
-                </div>
-            )
-        }
+        } 
     }
-
 
     return (
         <div>
