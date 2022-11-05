@@ -9,6 +9,7 @@ import { Toast } from "../../SweetAlerts/SweetAlets"
 const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => {
 
     const [productAdded, setproductAdded] = useState(false)
+
     const { addItem } = useContext(CartContext)
 
     const HandleOnAdd = (quantity) => {
@@ -21,7 +22,7 @@ const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => 
             Toast.fire({
                 icon: 'success',
                 title: `Has agregado ${quantity} productos al carrito`
-              })
+            })
         }
     }
 
@@ -48,8 +49,7 @@ const ItemDetail = ({ img, team, logoId, price, league, decade, id, stock }) => 
                     <p >{decade}</p>
                 </div>
                 {productAdded ? <ItemLinktoCart /> :
-                    stock !== 0 ? <Counter onAdd={HandleOnAdd} stock={stock} /> :
-                        <p style={{ color: "crimson", fontWeight: "500" }}>No hay stock</p>}
+                    stock !== 0 ? <Counter onAdd={HandleOnAdd} stock={stock} /> : ""}
             </div>
         </div>
     )

@@ -8,7 +8,7 @@ export const createAdapterProdFromFirestore = (doc) => {
         decade: data.decade,
         img: data.img,
         league:data.league,
-        logoID: data.logoID,
+        logoId: data.logoId,
         price:data.price,
         stock:data.stock,
         team:data.team,

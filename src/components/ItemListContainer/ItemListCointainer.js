@@ -18,7 +18,7 @@ const ItemListContainer = () => {
             .then(products => {
                 setProducts(products)
             }).catch(error => {
-                console.log(error)
+                console.dir(error)
             }).finally(() => setLoading(false))
     }, [categoryId])
 

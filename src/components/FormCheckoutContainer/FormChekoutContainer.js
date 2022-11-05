@@ -114,7 +114,7 @@ const FormCheckoutContainer = () => {
             }
 
         } catch (error) {
-            console.log(error)
+            console.dir(error)
         } 
     }
 

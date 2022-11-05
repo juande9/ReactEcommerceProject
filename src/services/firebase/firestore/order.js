@@ -85,6 +85,6 @@ export const createOrder = async (email, email2, name, number, cart, totalPriceO
         }
 
     } catch (error) {
-        console.log(error)
+        console.dir(error)
     }
 }

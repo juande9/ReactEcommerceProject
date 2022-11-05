@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { Toast } from '../SweetAlerts/SweetAlets';
 
 export const CartContext = createContext()
 
@@ -11,10 +12,13 @@ export const CartProvider = ({ children }) => {
     }, [cart])
 
     const addItem = (productToAdd) => {
-        if (!isInCart(productToAdd.id)) {
+        if(!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])
         } else {
-            console.log("Ya esta agregado")
+            Toast.fire({
+                icon: "error",
+                title: "El producto ya ha sido ingresado."
+            })
         }
     }
 
